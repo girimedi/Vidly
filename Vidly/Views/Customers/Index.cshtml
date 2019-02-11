@@ -1,4 +1,4 @@
-﻿@using Vidly.ViewModels
+﻿
 @using Vidly.Models
 
 @{
@@ -10,11 +10,11 @@
 
 <ul>
 
-    @foreach (Customer customer in Model.CustomerList)
+    @foreach (Customer customer in Model)
     {
 
 
-        <li>@Html.ActionLink(customer.Name, "CustomerDetails", "Customers", customer.Id, (CustomerListViewModel)Model)</li>
+        <li>@Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id},null)</li>
 
 
 
