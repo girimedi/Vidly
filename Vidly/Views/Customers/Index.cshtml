@@ -7,20 +7,33 @@
 }
 
 <h2>Customers</h2>
-
-<ul>
-
-    @foreach (Customer customer in Model)
-    {
-
-
-        <li>@Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id},null)</li>
+@*@if (!Model.Any())
+{
+    <p>We don't have any customers yet.</p>
+}
 
 
 
-    }
+
+else*@
+
+    <table class="table table-bordered table-bordered">
+        <thead>
+            <tr>
+                <th>Customer</th>
+                <th>Membership Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Customer customer in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id }, null)</td>
+                    <td>@customer.MembershipType.MembershipName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
 
-
-</ul>
 
